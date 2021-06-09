@@ -66,6 +66,9 @@ def new_game():
       if dealer_hand.total > player_hand.total:
         print("Dealer has a greater hand. You Lose!")
         break
+      if dealer_hand.total < player_hand.total:
+        print("You have the greater hand. You win!")
+        break
       if dealer_hand.total == player_hand.total:
         print("It's a tie!")
         break
