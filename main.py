@@ -26,6 +26,7 @@ class Hand:
       if 11 in self.hand:
         ace = self.hand.index(11)
         self.hand[ace] = 1
+        self.total -= 10
 
 def new_game():
   player_hand = Hand()
@@ -44,6 +45,7 @@ def new_game():
     if player_hand.total >= 21: 
       if player_hand.total == 21: 
         print("Your hand equals 21, you win!")
+        break
       else:
         print(f"Bust! your hand equals {player_hand.total}")
       break
@@ -61,8 +63,11 @@ def new_game():
       if dealer_hand.total > 21:
         print("Dealer bust! You win!")
         break
-      if dealer_hand.total >= player_hand.total:
+      if dealer_hand.total > player_hand.total:
         print("Dealer has a greater hand. You Lose!")
+        break
+      if dealer_hand.total == player_hand.total:
+        print("It's a tie!")
         break
 
 play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
